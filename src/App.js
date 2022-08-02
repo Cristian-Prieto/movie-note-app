@@ -9,7 +9,7 @@ const ORIGINAL_LIST = [
   {
     id: 1,
     type: "movie",
-    title: "Interestellar",
+    title: "Jumanji",
     comment: "Es una verga de pelicula",
     rating: 3,
   },

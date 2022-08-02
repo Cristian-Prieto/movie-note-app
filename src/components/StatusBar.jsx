@@ -1,24 +1,19 @@
-import { useEffect, useState } from "react";
 import styles from "./StatusBar.module.css";
 
 export function StatusBar({ ORIGINAL_LIST }) {
-  const [moviesCount, setMoviesCount] = useState([]);
-  const [booksCount, setBooksCount] = useState([]);
-  const [gamesCount, setGamesCount] = useState([]);
-  const [showsCount, setShowsCount] = useState([]);
+  const statBar = ORIGINAL_LIST.reduce(
+    (previous, current) => {
+      return { ...previous, [current.type]: previous[current.type] + 1 };
+    },
+    { movie: 0, book: 0, game: 0, show: 0 }
+  );
 
-  useEffect(() => {
-    setMoviesCount(ORIGINAL_LIST.filter((item) => item.type === "movie"));
-    setBooksCount(ORIGINAL_LIST.filter((item) => item.type === "book"));
-    setGamesCount(ORIGINAL_LIST.filter((item) => item.type === "game"));
-    setShowsCount(ORIGINAL_LIST.filter((item) => item.type === "show"));
-  }, [ORIGINAL_LIST]);
   return (
     <div className={styles.statusContainer}>
-      <div>Movies: {moviesCount.length}</div>
-      <div>Books: {booksCount.length}</div>
-      <div>Games: {gamesCount.length}</div>
-      <div>Shows: {showsCount.length}</div>
+      <div>Movies: {statBar.movie}</div>
+      <div>Books: {statBar.book}</div>
+      <div>Games: {statBar.game}</div>
+      <div>Shows: {statBar.show}</div>
     </div>
   );
 }
