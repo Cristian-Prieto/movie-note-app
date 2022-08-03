@@ -1,12 +1,20 @@
-export function Add() {
+import { useState } from "react";
+import { Modal } from "./Modal";
+
+export function Add({ ORIGINAL_LIST }) {
+  const [modalState, setModalState] = useState(false);
   return (
-    <form>
-      <input placeholder="type" />
-      <input placeholder="title" />
-      <input placeholder="raiting" />
-      <input placeholder="comments" />
-      <input></input>
-      <button>+</button>
-    </form>
+    <>
+      <div style={{ position: "fixed", bottom: 16, right: 16 }}>
+        <button onClick={() => setModalState(true)}>Add</button>
+      </div>
+
+      {modalState && (
+        <Modal
+          ORIGINAL_LIST={ORIGINAL_LIST}
+          close={() => setModalState(false)}
+        />
+      )}
+    </>
   );
 }

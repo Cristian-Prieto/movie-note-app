@@ -1,6 +1,7 @@
 import "./App.css";
 import { Search } from "./components/Search";
 import { List } from "./components/List";
+import { Add } from "./components/Add";
 import { Tabs } from "./components/Tabs";
 import { useState, useEffect } from "react";
 import { StatusBar } from "./components/StatusBar";
@@ -87,6 +88,7 @@ function App() {
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <List list={list} />
       </div>
+      <Add ORIGINAL_LIST={ORIGINAL_LIST} />
       <StatusBar ORIGINAL_LIST={ORIGINAL_LIST} />
       <footer className="footer">Cristian Prieto, 2022</footer>
     </div>

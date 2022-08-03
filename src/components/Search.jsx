@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function Search({ ORIGINAL_LIST }) {
   const [inputValue, setInputValue] = useState("");
-  const [searchedItem, setSearchedItem] = useState();
+  const [searchedItem, setSearchedItem] = useState(null);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -13,9 +13,8 @@ export function Search({ ORIGINAL_LIST }) {
     const result = ORIGINAL_LIST.find(
       (obj) => obj.title.toLowerCase() === inputValue.toLowerCase()
     );
-    setSearchedItem(result);
     console.log(result);
-    console.log(searchedItem);
+    setSearchedItem(result);
   };
 
   return (
@@ -35,7 +34,14 @@ export function Search({ ORIGINAL_LIST }) {
         </datalist>
         <button type="submit">🔎</button>
       </form>
-      <span>{JSON.stringify(searchedItem)}</span>
+      {searchedItem ? (
+        <span>
+          resultado de la busqueda: {searchedItem.title}, rating:
+          {searchedItem.rating}, comment: {searchedItem.comment}
+        </span>
+      ) : (
+        <div>Resultado aqui</div>
+      )}
     </>
   );
 }
