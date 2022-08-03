@@ -1,15 +1,19 @@
-export function Tabs({ setActiveTab }) {
-  const changeActiveTab = (event) => {
-    setActiveTab(event);
-  };
-
+export function Tabs({ activeTab, onChange }) {
   return (
     <div>
-      <button onClick={() => changeActiveTab("all")}>all</button>
-      <button onClick={() => changeActiveTab("movie")}>Movies</button>
-      <button onClick={() => changeActiveTab("show")}>TV Shows</button>
-      <button onClick={() => changeActiveTab("game")}>Games</button>
-      <button onClick={() => changeActiveTab("book")}>Books</button>
+      <TabButton label="All" value="all" activeTab={activeTab} onChange={onChange} />
+      <TabButton label="Movies" value="movie" activeTab={activeTab} onChange={onChange} />
+      <TabButton label="TV Shows" value="show" activeTab={activeTab} onChange={onChange} />
+      <TabButton label="Games" value="game" activeTab={activeTab} onChange={onChange} />
+      <TabButton label="Books" value="book" activeTab={activeTab} onChange={onChange} />
     </div>
   );
 }
+
+const TabButton = ({ value, label, activeTab, onChange }) => {
+  return (
+    <button disabled={activeTab === value} onClick={() => onChange(value)}>
+      {label}
+    </button>
+  );
+};

@@ -13,6 +13,8 @@ const ORIGINAL_LIST = [
     title: "Jumanji",
     comment: "Es una verga de pelicula",
     rating: 3,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ const ORIGINAL_LIST = [
     title: "mario and rabits",
     comment: "juegardo",
     rating: 2,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ const ORIGINAL_LIST = [
     title: "La biblia",
     comment: "Es una verga de libro",
     rating: 1,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ const ORIGINAL_LIST = [
     title: "2 girls one cup",
     comment: "no la vi",
     rating: 0,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 5,
@@ -41,6 +49,8 @@ const ORIGINAL_LIST = [
     title: "coran",
     comment: "Es una verga de libro",
     rating: 4,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 6,
@@ -48,6 +58,8 @@ const ORIGINAL_LIST = [
     title: "Dexter",
     comment: "Es una verga de serie",
     rating: 5,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
     id: 7,
@@ -55,21 +67,39 @@ const ORIGINAL_LIST = [
     title: "jarri poter",
     comment: "Es una verga de serie",
     rating: 5,
+    createdAt: new Date(),
+    updatedAt: null,
   },
   {
-    id: 8,
+    id: 28,
     type: "game",
     title: "jarri poter psx",
     comment: "Es una verga de serie",
     rating: 5,
+    createdAt: new Date(),
+    updatedAt: null,
   },
 ];
 
 function App() {
   const [list, setList] = useState(ORIGINAL_LIST);
   const [activeTab, setActiveTab] = useState("all");
-  console.log(activeTab);
-  console.log(list);
+
+  const handleTabChange = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  const handleAddNewNote = (newNote) => {
+    const lastIdFromList = ORIGINAL_LIST[ORIGINAL_LIST.length - 1].id;
+
+    const newNoteWithGeneratedId = {
+      ...newNote,
+      id: lastIdFromList + 1,
+    };
+
+    console.log("App::handleAddNewNote::newNoteWithGeneratedId", newNoteWithGeneratedId);
+  };
+
   useEffect(() => {
     if (activeTab !== "all") {
       setList(ORIGINAL_LIST.filter((listItem) => listItem.type === activeTab));
@@ -83,13 +113,13 @@ function App() {
       <header className="header">
         <h1>Media-notes app</h1>
       </header>
-      <Search ORIGINAL_LIST={ORIGINAL_LIST} />
+      <Search data={ORIGINAL_LIST} />
       <div className="body">
-        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <List list={list} />
+        <Tabs activeTab={activeTab} onChange={handleTabChange} />
+        <List data={list} />
       </div>
-      <Add ORIGINAL_LIST={ORIGINAL_LIST} />
-      <StatusBar ORIGINAL_LIST={ORIGINAL_LIST} />
+      <Add onAdd={handleAddNewNote} />
+      <StatusBar data={ORIGINAL_LIST} />
       <footer className="footer">Cristian Prieto, 2022</footer>
     </div>
   );

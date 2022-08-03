@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 
-export function Add({ ORIGINAL_LIST }) {
+export function Add({ onAdd }) {
   const [modalState, setModalState] = useState(false);
   return (
     <>
@@ -9,12 +9,7 @@ export function Add({ ORIGINAL_LIST }) {
         <button onClick={() => setModalState(true)}>Add</button>
       </div>
 
-      {modalState && (
-        <Modal
-          ORIGINAL_LIST={ORIGINAL_LIST}
-          close={() => setModalState(false)}
-        />
-      )}
+      {modalState && <Modal onAdd={onAdd} close={() => setModalState(false)} />}
     </>
   );
 }
