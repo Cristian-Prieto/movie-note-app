@@ -1,0 +1,9 @@
+.tabsBox {
+  display: flex;
+  background-color: #111827;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+}

@@ -1,0 +1,41 @@
+.tab {
+  border-style: none;
+  background-color: #111827;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #e5e7eb;
+  width: 5rem;
+  border-radius: 8px;
+  border: 2px solid #4b5563;
+}
+
+.tab:hover {
+  border-style: none;
+  background-color: #4b5563;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #e5e7eb;
+  width: 5rem;
+  border-radius: 8px;
+  border: 2px solid #4b5563;
+}
+
+.tab:target {
+  border-style: none;
+  background-color: #e5e7eb;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #e5e7eb;
+  width: 5rem;
+  border-radius: 8px;
+  border: 2px solid #4b5563;
+}

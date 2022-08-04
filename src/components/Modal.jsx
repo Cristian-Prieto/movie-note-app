@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { Rating } from "./Rating";
+import { RadioButton } from "./RadioButton";
+import { InputText } from "./InputText";
+import { Button } from "./Button";
 
 export function Modal({ onAdd, close }) {
   const [newNote, setNewNote] = useState({
@@ -39,7 +43,8 @@ export function Modal({ onAdd, close }) {
 
   return (
     <div>
-      <button onClick={close}>X</button>
+      <Button onClick={close}>X</Button>
+      {/* <button onClick={close}>X</button> */}
       <form onSubmit={addToList}>
         <div>
           <RadioButton
@@ -68,72 +73,22 @@ export function Modal({ onAdd, close }) {
           />
         </div>
 
-        <input name="title" value={newNote.title} onChange={handleInputChange} placeholder="TITLE" />
-        {/* <input placeholder="⭐️⭐️⭐️⭐️⭐️" type="number" /> */}
+        <InputText
+          name="title"
+          value={newNote.title}
+          onChange={handleInputChange}
+          placeholder="Title"
+        />
         <Rating onChange={handleRatingChange} rating={newNote.rating} />
-        <input name="comment" value={newNote.comment} onChange={handleInputChange} placeholder="COMMENT" />
-        <button type="submit">ADD!</button>
+        <InputText
+          name="comment"
+          value={newNote.comment}
+          onChange={handleInputChange}
+          placeholder="Comment"
+        />
+        <Button>ADD!</Button>
+        {/* <button type="submit">ADD!</button> */}
       </form>
     </div>
   );
 }
-
-// Before:
-
-// <label>
-//   movie
-//   <input
-//     value="movie"
-//     type="radio"
-//     name="type"
-//     onChange={handleRadioButtonChange}
-//     checked={newNote.type === "movie"}
-//   />
-// </label>
-
-// After:
-
-// <RadioButton
-//   label="Movie"
-//   value="movie"
-//   onChange={handleRadioButtonChange}
-//   isSelected={newNote.type === "movie"}
-// />
-
-const RadioButton = ({ label, value, onChange, isSelected }) => {
-  return (
-    <label>
-      <input
-        style={{ backgroundColor: "tomato" }}
-        value={value}
-        type="radio"
-        name="type"
-        onChange={onChange}
-        checked={isSelected}
-      />
-      {label}
-    </label>
-  );
-};
-
-const Rating = ({ rating, onChange }) => {
-  return (
-    <div>
-      <button type="button" onClick={() => onChange(1)}>
-        ⭐️
-      </button>
-      <button type="button" onClick={() => onChange(2)}>
-        {rating >= 2 ? "⭐️" : "🔴"}
-      </button>
-      <button type="button" onClick={() => onChange(3)}>
-        {rating >= 3 ? "⭐️" : "🔴"}
-      </button>
-      <button type="button" onClick={() => onChange(4)}>
-        {rating >= 4 ? "⭐️" : "🔴"}
-      </button>
-      <button type="button" onClick={() => onChange(5)}>
-        {rating === 5 ? "⭐️" : "🔴"}
-      </button>
-    </div>
-  );
-};

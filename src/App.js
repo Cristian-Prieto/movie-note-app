@@ -65,13 +65,14 @@ const ORIGINAL_LIST = [
     id: 7,
     type: "book",
     title: "jarri poter",
-    comment: "Es una verga de serie",
+    comment:
+      "Es una verga de serie, Es una verga de serie Es una verga de serie Es una verga de serie",
     rating: 5,
     createdAt: new Date(),
     updatedAt: null,
   },
   {
-    id: 28,
+    id: 8,
     type: "game",
     title: "jarri poter psx",
     comment: "Es una verga de serie",
@@ -97,7 +98,10 @@ function App() {
       id: lastIdFromList + 1,
     };
 
-    console.log("App::handleAddNewNote::newNoteWithGeneratedId", newNoteWithGeneratedId);
+    console.log(
+      "App::handleAddNewNote::newNoteWithGeneratedId",
+      newNoteWithGeneratedId
+    );
   };
 
   useEffect(() => {
