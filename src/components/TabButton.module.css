@@ -13,6 +13,7 @@
 }
 
 .tab:hover {
+  transition: 0.5s;
   border-style: none;
   background-color: #4b5563;
   height: 2.5rem;
@@ -26,16 +27,15 @@
   border: 2px solid #4b5563;
 }
 
-.tab:target {
+.tab:disabled {
   border-style: none;
   background-color: #e5e7eb;
-  height: 2.5rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  color: #e5e7eb;
+  color: #111827;
   width: 5rem;
   border-radius: 8px;
-  border: 2px solid #4b5563;
 }

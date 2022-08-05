@@ -1,20 +1,12 @@
-.listBox {
+.item {
+  list-style: none;
   display: flex;
-  width: 80%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 12px;
-}
-.listHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  color: #f3f4f6;
-  font-weight: 200;
+  min-height: 2.5rem;
+  background-color: #f3f4f6;
+  border-radius: 1rem;
 }
+
 .title {
   min-width: 8rem;
   flex-direction: column;
@@ -38,6 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-weight: 200;
   padding: 8px;
 }
 

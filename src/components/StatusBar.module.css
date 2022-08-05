@@ -1,6 +1,21 @@
 .statusContainer {
   display: flex;
-  width: 100%;
+  background-color: aqua;
   height: 5rem;
-  color: #f3f4f6;
+  align-items: center;
+  width: 100%;
+}
+
+.movie {
+  display: flex;
+}
+.game {
+  display: flex;
+}
+.book {
+  display: flex;
+}
+
+.show {
+  display: flex;
 }

@@ -3,6 +3,7 @@ import { Rating } from "./Rating";
 import { RadioButton } from "./RadioButton";
 import { InputText } from "./InputText";
 import { Button } from "./Button";
+import styles from "./Modal.module.css";
 
 export function Modal({ onAdd, close }) {
   const [newNote, setNewNote] = useState({
@@ -42,9 +43,8 @@ export function Modal({ onAdd, close }) {
   };
 
   return (
-    <div>
+    <div className={styles.modalBox}>
       <Button onClick={close}>X</Button>
-      {/* <button onClick={close}>X</button> */}
       <form onSubmit={addToList}>
         <div>
           <RadioButton
