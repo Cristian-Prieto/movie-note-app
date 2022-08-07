@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { format } from "date-fns";
 import styles from "./Search.module.css";
 import { BsSearch } from "react-icons/bs";
+import { BsStar, BsStarFill } from "react-icons/bs";
 
 export function Search({ data }) {
   const [inputValue, setInputValue] = useState("");
@@ -39,10 +41,35 @@ export function Search({ data }) {
         </button>
       </form>
       {searchedItem ? (
-        <span className={styles.resultTrue}>
-          resultado de la busqueda: {searchedItem.title}, rating:
-          {searchedItem.rating}, comment: {searchedItem.comment}
-        </span>
+        <div className={styles.resultTrue}>
+          <div>
+            <div className={styles.top}>
+              <div className={styles.title}>{searchedItem.title}</div>
+              <div>
+                <BsStarFill />
+              </div>
+              <div>
+                {searchedItem.rating >= 2 ? <BsStarFill /> : <BsStar />}
+              </div>
+              <div>
+                {searchedItem.rating >= 3 ? <BsStarFill /> : <BsStar />}
+              </div>
+              <div>
+                {searchedItem.rating >= 4 ? <BsStarFill /> : <BsStar />}
+              </div>
+              <div>
+                {searchedItem.rating === 5 ? <BsStarFill /> : <BsStar />}{" "}
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.comment}>{searchedItem.comment}</div>
+
+          <div className={styles.date}>
+            {" "}
+            {format(searchedItem.createdAt, "dd/MM/yyyy")}
+          </div>
+        </div>
       ) : (
         <div></div>
       )}

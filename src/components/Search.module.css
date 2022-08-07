@@ -4,14 +4,14 @@
   align-items: center;
   background-color: #111827;
   width: 100%;
-  height: 4rem;
+  height: 5rem;
   gap: 0.5rem;
-  /* padding: 2rem 0; */
+  margin: 1rem 0 1rem;
 }
 
 .textBox {
   border-style: none;
-  height: 2rem;
+  height: 2.5rem;
   width: 20rem;
   padding: 0 8px;
   border-radius: 8px;
@@ -36,9 +36,45 @@
 .resultTrue {
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 80%;
+  border: 2px solid #4b5563;
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.title {
+  padding: 0 0 8px;
+  display: flex;
+  justify-content: space-between;
   justify-content: center;
-  align-items: center;
-  /* height: 5rem; */
   width: 100%;
-  background-color: brown;
+  font-size: 1rem;
+}
+.top {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #4b5563;
+}
+.comment {
+  padding-top: 8px;
+  justify-content: left;
+  font-weight: 200;
+  display: flex;
+  width: 80%;
+}
+.date {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 200;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 680px) {
+  .resultTrue {
+    width: 90%;
+    background-color: #1f2937;
+  }
 }

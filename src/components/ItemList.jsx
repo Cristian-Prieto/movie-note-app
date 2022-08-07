@@ -4,7 +4,19 @@ import styles from "./ItemList.module.css";
 
 export function ItemList({ data }) {
   return data.map((item) => (
-    <li key={item.id} className={styles.item}>
+    <li
+      key={item.id}
+      style={{
+        listStyle: "none",
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        minHeight: "2.5rem",
+        backgroundColor: "white",
+        borderRadius: "1rem",
+        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.5)",
+      }}
+    >
       <div className={styles.title}>{item.title}</div>
       <div className={styles.rating}>
         <div>

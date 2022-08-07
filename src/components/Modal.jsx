@@ -43,52 +43,54 @@ export function Modal({ onAdd, close }) {
   };
 
   return (
-    <div className={styles.modalBox}>
-      <Button onClick={close}>X</Button>
-      <form onSubmit={addToList}>
-        <div>
-          <RadioButton
-            label="Movie"
-            value="movie"
-            onChange={handleRadioButtonChange}
-            isSelected={newNote.type === "movie"}
-          />
-          <RadioButton
-            label="Game"
-            value="game"
-            onChange={handleRadioButtonChange}
-            isSelected={newNote.type === "game"}
-          />
-          <RadioButton
-            label="TV Show"
-            value="show"
-            onChange={handleRadioButtonChange}
-            isSelected={newNote.type === "show"}
-          />
-          <RadioButton
-            label="Book"
-            value="book"
-            onChange={handleRadioButtonChange}
-            isSelected={newNote.type === "book"}
-          />
-        </div>
+    <div className={styles.overlay}>
+      <div className={styles.container}>
+        <Button onClick={close}>X</Button>
+        <form onSubmit={addToList} className={styles.formContent}>
+          <div className={styles.select}>
+            <RadioButton
+              label="Movie"
+              value="movie"
+              onChange={handleRadioButtonChange}
+              isSelected={newNote.type === "movie"}
+            />
+            <RadioButton
+              label="Game"
+              value="game"
+              onChange={handleRadioButtonChange}
+              isSelected={newNote.type === "game"}
+            />
+            <RadioButton
+              label="TV Show"
+              value="show"
+              onChange={handleRadioButtonChange}
+              isSelected={newNote.type === "show"}
+            />
+            <RadioButton
+              label="Book"
+              value="book"
+              onChange={handleRadioButtonChange}
+              isSelected={newNote.type === "book"}
+            />
+          </div>
 
-        <InputText
-          name="title"
-          value={newNote.title}
-          onChange={handleInputChange}
-          placeholder="Title"
-        />
-        <Rating onChange={handleRatingChange} rating={newNote.rating} />
-        <InputText
-          name="comment"
-          value={newNote.comment}
-          onChange={handleInputChange}
-          placeholder="Comment"
-        />
-        <Button>ADD!</Button>
-        {/* <button type="submit">ADD!</button> */}
-      </form>
+          <InputText
+            name="title"
+            value={newNote.title}
+            onChange={handleInputChange}
+            placeholder="Title"
+          />
+          <Rating onChange={handleRatingChange} rating={newNote.rating} />
+          <InputText
+            name="comment"
+            value={newNote.comment}
+            onChange={handleInputChange}
+            placeholder="Comment"
+          />
+          <Button>ADD!</Button>
+          {/* <button type="submit">ADD!</button> */}
+        </form>
+      </div>
     </div>
   );
 }

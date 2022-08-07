@@ -80,6 +80,56 @@ const ORIGINAL_LIST = [
     createdAt: new Date(),
     updatedAt: null,
   },
+  {
+    id: 9,
+    type: "game",
+    title: "otro juego",
+    comment:
+      "me parece un juego exelente, no tiene fallas. Literalmente me cambió la puta vida.",
+    rating: 4,
+    createdAt: new Date(),
+    updatedAt: null,
+  },
+  {
+    id: 10,
+    type: "game",
+    title: "otro juego MAS",
+    comment:
+      "me parece un juego exelente, no tiene fallas. Literalmente me cambió la puta vida.",
+    rating: 4,
+    createdAt: new Date(),
+    updatedAt: null,
+  },
+  {
+    id: 11,
+    type: "game",
+    title: "juego3",
+    comment:
+      "me parece un juego exelente, no tiene fallas. Literalmente me cambió la puta vida.",
+    rating: 1,
+    createdAt: new Date(),
+    updatedAt: null,
+  },
+  {
+    id: 12,
+    type: "game",
+    title: "juego de sisisisi",
+    comment:
+      "me parece un juego exelente, no tiene fallas. Literalmente me cambió la puta vida.",
+    rating: 1,
+    createdAt: new Date(),
+    updatedAt: null,
+  },
+  {
+    id: 13,
+    type: "game",
+    title: "juego de nonono",
+    comment:
+      "me parece un juego exelente, no tiene fallas. Literalmente me cambió la puta vida.",
+    rating: 1,
+    createdAt: new Date(),
+    updatedAt: null,
+  },
 ];
 
 function App() {
@@ -118,12 +168,10 @@ function App() {
         <h1>Media-notes app</h1>
       </header>
       <Search data={ORIGINAL_LIST} />
-      <div className="body">
-        <Tabs activeTab={activeTab} onChange={handleTabChange} />
-        <List data={list} />
-      </div>
-      <Add onAdd={handleAddNewNote} />
+      <Tabs activeTab={activeTab} onChange={handleTabChange} />
+      <List data={list} />
       <StatusBar data={ORIGINAL_LIST} />
+      <Add onAdd={handleAddNewNote} />
       <footer className="footer">Cristian Prieto, 2022</footer>
     </div>
   );

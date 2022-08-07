@@ -1,2 +1,45 @@
-.modalBox {
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  height: 30rem;
+}
+.select {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.formContent {
+  gap: 1rem;
+  background-color: #e5e7eb;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add {
+  background-color: aqua;
+  border-style: none;
 }

@@ -2,7 +2,7 @@ import { BsStarFill, BsStar } from "react-icons/bs";
 
 export const Rating = ({ rating, onChange }) => {
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <button type="button" onClick={() => onChange(1)}>
         <BsStarFill />
       </button>

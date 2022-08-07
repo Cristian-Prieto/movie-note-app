@@ -1,21 +1,30 @@
 .statusContainer {
+  box-sizing: border-box;
   display: flex;
-  background-color: aqua;
-  height: 5rem;
+  height: 3rem;
   align-items: center;
-  width: 100%;
+  width: 80%;
+  margin: 1rem 0 0;
+  justify-content: left;
+  border-radius: 1rem;
+  padding: 4px;
+  gap: 4px;
+  background: linear-gradient(to top, #e5e7eb, #f9fafb);
 }
 
-.movie {
+.title {
+  margin-top: 3rem;
+  color: #f9fafb;
+  height: 1rem;
+  width: 80%;
   display: flex;
-}
-.game {
-  display: flex;
-}
-.book {
-  display: flex;
+  font-size: 12px;
+  font-weight: 200;
+  justify-content: center;
 }
 
-.show {
-  display: flex;
+@media screen and (max-width: 680px) {
+  .statusContainer {
+    width: 90%;
+  }
 }
