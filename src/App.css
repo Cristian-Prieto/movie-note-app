@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
   font-family: "Readex Pro", sans-serif;
+  box-sizing: border-box;
 }
 
 .app {
@@ -38,6 +38,6 @@
   display: flex;
   font-size: 12px;
   font-weight: 200;
-  margin-top: 2rem;
+  margin-top: auto;
   background-color: #1f2937;
 }

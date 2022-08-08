@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import styles from "./StatusBar.module.css";
+import { getTypeColor } from "../utils/utils";
 
 export function StatusBar({ data }) {
   const statBar = useMemo(() => {
@@ -12,64 +13,19 @@ export function StatusBar({ data }) {
   }, [data]);
 
   return (
-    <>
-      <span className={styles.title}>
-        Movies: {statBar.movie} Books: {statBar.books} Games: {statBar.game} TV
-        Shows: {statBar.show}
-      </span>
-
-      <div className={styles.statusContainer}>
-        <div
-          style={{
-            height: "100%",
-            width: `${statBar.movie}0%`,
-            display: "flex",
-            backgroundColor: "#be123c",
-            alignItems: "center",
-            borderTopLeftRadius: "1rem",
-            borderBottomLeftRadius: "1rem",
-            paddingLeft: 6,
-            paddingRight: 6,
-          }}
-        >
-          Movies: {statBar.movie}
-        </div>
-        <div
-          style={{
-            height: "100%",
-            width: `${statBar.book}0%`,
-            display: "flex",
-            backgroundColor: "#facc15",
-            alignItems: "center",
-          }}
-        >
-          Books: {statBar.book}
-        </div>
-        <div
-          style={{
-            height: "100%",
-            width: `${statBar.game}0%`,
-            display: "flex",
-            backgroundColor: "#6b21a8",
-            alignItems: "center",
-          }}
-        >
-          Games: {statBar.game}
-        </div>
-        <div
-          style={{
-            height: "100%",
-            width: `${statBar.show}0%`,
-            display: "flex",
-            backgroundColor: "#1e40af",
-            alignItems: "center",
-            borderTopRightRadius: "1rem",
-            borderBottomRightRadius: "1rem",
-          }}
-        >
-          {statBar.show}
-        </div>
+    <div className={styles.statusContainer}>
+      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("movie") }}>
+        Movies: {statBar.movie}
       </div>
-    </>
+      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("book") }}>
+        Books: {statBar.book}
+      </div>
+      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("game") }}>
+        Games: {statBar.game}
+      </div>
+      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("show") }}>
+        TV Shows: {statBar.show}
+      </div>
+    </div>
   );
 }

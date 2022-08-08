@@ -11,7 +11,7 @@ export function Modal({ onAdd, close }) {
     title: "",
     comment: "",
     rating: 1,
-    createdAt: new Date(),
+    createdAt: new Date().getTime(),
     updatedAt: null,
   });
 
@@ -45,8 +45,10 @@ export function Modal({ onAdd, close }) {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
-        <Button onClick={close}>X</Button>
         <form onSubmit={addToList} className={styles.formContent}>
+          <Button onClick={close} type="button" classes={styles.closeButton}>
+            X
+          </Button>
           <div className={styles.select}>
             <RadioButton
               label="Movie"
@@ -74,12 +76,7 @@ export function Modal({ onAdd, close }) {
             />
           </div>
 
-          <InputText
-            name="title"
-            value={newNote.title}
-            onChange={handleInputChange}
-            placeholder="Title"
-          />
+          <InputText name="title" value={newNote.title} onChange={handleInputChange} placeholder="Title" />
           <Rating onChange={handleRatingChange} rating={newNote.rating} />
           <InputText
             name="comment"
@@ -87,8 +84,7 @@ export function Modal({ onAdd, close }) {
             onChange={handleInputChange}
             placeholder="Comment"
           />
-          <Button>ADD!</Button>
-          {/* <button type="submit">ADD!</button> */}
+          <Button>ADD</Button>
         </form>
       </div>
     </div>

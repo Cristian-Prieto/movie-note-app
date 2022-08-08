@@ -1,22 +1,17 @@
-/* .item {
+.item {
   list-style: none;
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: stretch;
   min-height: 2.5rem;
-  background-color: #e5e7eb;
+  background-color: white;
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
-} */
+}
 .item:hover {
   transition: 0.9s ease-out;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  min-height: 2.5rem;
-  background-color: #f3f4f6;
-  border-radius: 1rem;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  background-color: #f3f4f6f0;
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5); */
 }
 .item:hover > .title {
   transition: 1s ease-in;

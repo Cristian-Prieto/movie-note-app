@@ -1,23 +1,23 @@
 import { format } from "date-fns";
 import { BsStarFill, BsStar } from "react-icons/bs";
-import styles from "./ItemList.module.css";
+import { getTypeColor } from "../utils/utils";
+import styles from "./Item.module.css";
 
-export function ItemList({ data }) {
-  return data.map((item) => (
-    <li
-      key={item.id}
-      style={{
-        listStyle: "none",
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        minHeight: "2.5rem",
-        backgroundColor: "white",
-        borderRadius: "1rem",
-        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.5)",
-      }}
-    >
-      <div className={styles.title}>{item.title}</div>
+export function Item({ item }) {
+  return (
+    <li key={item.id} className={styles.item}>
+      <div
+        style={{
+          borderLeft: `18px solid ${getTypeColor(item.type)}`,
+          width: 48,
+          minHeight: 45,
+          borderTopLeftRadius: "1rem",
+          borderBottomLeftRadius: "1rem",
+        }}
+        className={styles.title}
+      >
+        {item.title}
+      </div>
       <div className={styles.rating}>
         <div>
           <BsStarFill />
@@ -32,5 +32,5 @@ export function ItemList({ data }) {
 
       {/* <div> / created at: {item.createdAt.toString()}</div> */}
     </li>
-  ));
+  );
 }

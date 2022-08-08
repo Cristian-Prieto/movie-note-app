@@ -1,4 +1,4 @@
-import { ItemList } from "./ItemList";
+import { Item } from "./Item";
 import styles from "./List.module.css";
 
 export function List({ data }) {
@@ -10,7 +10,9 @@ export function List({ data }) {
         <span className={styles.comment}>Comment</span>
         <span className={styles.date}>Added</span>
       </div>
-      <ItemList data={data} />
+      {data.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
     </ul>
   );
 }

@@ -12,7 +12,7 @@
 .textBox {
   border-style: none;
   height: 2.5rem;
-  width: 20rem;
+  width: 100%;
   padding: 0 8px;
   border-radius: 8px;
   border: 2px solid #4b5563;
@@ -31,18 +31,19 @@
   border-radius: 100%;
   background-color: #111827;
   color: #e5e7eb;
+  cursor: pointer;
 }
 
 .resultTrue {
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  box-sizing: border-box;
   padding: 1rem;
-  width: 80%;
+  width: 100%;
   border: 2px solid #4b5563;
   background-color: #1f2937;
   color: #e5e7eb;
+  margin-bottom: 2rem;
 }
 
 .title {

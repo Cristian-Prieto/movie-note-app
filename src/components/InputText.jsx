@@ -1,6 +1,7 @@
-export function InputText({ onChange, placeholder }) {
+export function InputText({ name, onChange, placeholder }) {
   return (
     <input
+      name={name}
       placeholder={placeholder}
       onChange={onChange}
       style={{

@@ -14,21 +14,14 @@ export function Search({ data }) {
 
   const search = (event) => {
     event.preventDefault();
-    const result = data.find(
-      (obj) => obj.title.toLowerCase() === inputValue.toLowerCase()
-    );
+    const result = data.find((obj) => obj.title.toLowerCase() === inputValue.toLowerCase());
     setSearchedItem(result);
   };
 
   return (
     <>
       <form onSubmit={search} className={styles.searchBox}>
-        <input
-          list="entries"
-          placeholder="Search"
-          onChange={handleInputChange}
-          className={styles.textBox}
-        />
+        <input list="entries" placeholder="Search" onChange={handleInputChange} className={styles.textBox} />
         <datalist id="entries">
           {data.map((item) => (
             <option key={item.id} value={item.title}>
@@ -48,27 +41,16 @@ export function Search({ data }) {
               <div>
                 <BsStarFill />
               </div>
-              <div>
-                {searchedItem.rating >= 2 ? <BsStarFill /> : <BsStar />}
-              </div>
-              <div>
-                {searchedItem.rating >= 3 ? <BsStarFill /> : <BsStar />}
-              </div>
-              <div>
-                {searchedItem.rating >= 4 ? <BsStarFill /> : <BsStar />}
-              </div>
-              <div>
-                {searchedItem.rating === 5 ? <BsStarFill /> : <BsStar />}{" "}
-              </div>
+              <div>{searchedItem.rating >= 2 ? <BsStarFill /> : <BsStar />}</div>
+              <div>{searchedItem.rating >= 3 ? <BsStarFill /> : <BsStar />}</div>
+              <div>{searchedItem.rating >= 4 ? <BsStarFill /> : <BsStar />}</div>
+              <div>{searchedItem.rating === 5 ? <BsStarFill /> : <BsStar />} </div>
             </div>
           </div>
 
           <div className={styles.comment}>{searchedItem.comment}</div>
 
-          <div className={styles.date}>
-            {" "}
-            {format(searchedItem.createdAt, "dd/MM/yyyy")}
-          </div>
+          <div className={styles.date}> {format(searchedItem.createdAt, "dd/MM/yyyy")}</div>
         </div>
       ) : (
         <div></div>
