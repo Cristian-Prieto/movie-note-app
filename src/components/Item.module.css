@@ -53,16 +53,33 @@
   align-items: center;
   padding: 8px;
 }
+.delete {
+  background-color: transparent;
+  color: black;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
 
 @media screen and (max-width: 680px) {
+  .item {
+    justify-content: space-between;
+  }
+
   .comment {
     display: none;
   }
   .date {
     display: none;
   }
+  .rating {
+  }
   .title {
-    width: 100%;
+    min-width: 20rem;
     font-size: 16px;
   }
 }

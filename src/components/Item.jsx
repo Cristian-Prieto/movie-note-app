@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { BsStarFill, BsStar } from "react-icons/bs";
 import { getTypeColor } from "../utils/utils";
+import { Button } from "./Button";
 import styles from "./Item.module.css";
 
 export function Item({ item }) {
@@ -29,7 +30,7 @@ export function Item({ item }) {
       </div>
       <div className={styles.comment}>{item.comment} </div>
       <div className={styles.date}>{format(item.createdAt, "dd/MM/yyyy")}</div>
-
+      <Button classes={styles.delete}>x</Button>
       {/* <div> / created at: {item.createdAt.toString()}</div> */}
     </li>
   );
