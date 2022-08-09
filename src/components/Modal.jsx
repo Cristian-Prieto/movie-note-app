@@ -5,15 +5,19 @@ import { InputText } from "./InputText";
 import { Button } from "./Button";
 import styles from "./Modal.module.css";
 
-export function Modal({ onAdd, close }) {
-  const [newNote, setNewNote] = useState({
-    type: "movie",
-    title: "",
-    comment: "",
-    rating: 1,
-    createdAt: new Date().getTime(),
-    updatedAt: null,
-  });
+export function Modal({ editItem, onSave, close }) {
+  const [newNote, setNewNote] = useState(
+    editItem
+      ? editItem
+      : {
+          type: "movie",
+          title: "",
+          comment: "",
+          rating: 1,
+          createdAt: new Date().getTime(),
+          updatedAt: null,
+        }
+  );
 
   const handleRatingChange = (newRating) => {
     setNewNote({
@@ -38,7 +42,7 @@ export function Modal({ onAdd, close }) {
 
   const addToList = (event) => {
     event.preventDefault();
-    onAdd(newNote);
+    onSave(newNote);
     close();
   };
 
@@ -76,12 +80,7 @@ export function Modal({ onAdd, close }) {
             />
           </div>
 
-          <InputText
-            name="title"
-            value={newNote.title}
-            onChange={handleInputChange}
-            placeholder="Title"
-          />
+          <InputText name="title" value={newNote.title} onChange={handleInputChange} placeholder="Title" />
           <Rating onChange={handleRatingChange} rating={newNote.rating} />
           <InputText
             name="comment"
@@ -89,7 +88,7 @@ export function Modal({ onAdd, close }) {
             onChange={handleInputChange}
             placeholder="Comment"
           />
-          <Button classes={styles.add}>ADD</Button>
+          <Button classes={styles.add}>{editItem ? "EDIT" : "ADD"}</Button>
         </form>
       </div>
     </div>

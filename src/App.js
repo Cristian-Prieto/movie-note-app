@@ -6,10 +6,12 @@ import { Tabs } from "./components/Tabs";
 import { StatusBar } from "./components/StatusBar";
 import { useMemo, useState } from "react";
 import { getNotesFromLocalStorage, saveToLocalStorage } from "./utils/utils";
+import { Modal } from "./components/Modal";
 
 function App() {
   const [list, setList] = useState(getNotesFromLocalStorage());
   const [activeTab, setActiveTab] = useState("all");
+  const [editItem, setEditItem] = useState();
 
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
@@ -36,11 +38,26 @@ function App() {
     setList(newList);
   };
 
+  const handleStartEdit = (note) => {
+    setEditItem(note);
+  };
+
+  const handleUpdateNote = (note) => {
+    const newList = list.map((item) => {
+      if (note.id === item.id) {
+        // TODO: Set updatedAt value and display in UI
+        return note;
+      }
+
+      return item;
+    });
+
+    saveToLocalStorage(newList);
+    setList(newList);
+  };
+
   const filteredList = useMemo(() => {
-    const filtered =
-      activeTab !== "all"
-        ? list.filter((listItem) => listItem.type === activeTab)
-        : list;
+    const filtered = activeTab !== "all" ? list.filter((listItem) => listItem.type === activeTab) : list;
     return filtered;
   }, [activeTab, list]);
 
@@ -55,8 +72,11 @@ function App() {
 
         <Tabs activeTab={activeTab} onChange={handleTabChange} />
       </div>
-      <List data={filteredList} deleteNote={deleteNote} />
+      <List data={filteredList} deleteNote={deleteNote} onStartEdit={handleStartEdit} />
       <Add onAdd={handleAddNewNote} />
+      {editItem && (
+        <Modal editItem={editItem} onSave={handleUpdateNote} close={() => setEditItem(undefined)} />
+      )}
       <footer className="footer">Cristian Prieto, 2022</footer>
     </div>
   );

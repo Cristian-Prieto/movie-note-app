@@ -12,7 +12,7 @@ export function Add({ onAdd }) {
         </button>
       </div>
 
-      {modalState && <Modal onAdd={onAdd} close={() => setModalState(false)} />}
+      {modalState && <Modal onSave={onAdd} close={() => setModalState(false)} />}
     </>
   );
 }
