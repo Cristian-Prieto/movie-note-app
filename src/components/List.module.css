@@ -8,15 +8,7 @@
   font-size: 12px;
   margin-bottom: 2rem;
 }
-.listHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2rem;
-  width: 100%;
-  color: #f3f4f6;
-  font-weight: 200;
-}
+
 .title {
   min-width: 10rem;
   flex-direction: column;

@@ -76,7 +76,12 @@ export function Modal({ onAdd, close }) {
             />
           </div>
 
-          <InputText name="title" value={newNote.title} onChange={handleInputChange} placeholder="Title" />
+          <InputText
+            name="title"
+            value={newNote.title}
+            onChange={handleInputChange}
+            placeholder="Title"
+          />
           <Rating onChange={handleRatingChange} rating={newNote.rating} />
           <InputText
             name="comment"
@@ -84,7 +89,7 @@ export function Modal({ onAdd, close }) {
             onChange={handleInputChange}
             placeholder="Comment"
           />
-          <Button>ADD</Button>
+          <Button classes={styles.add}>ADD</Button>
         </form>
       </div>
     </div>

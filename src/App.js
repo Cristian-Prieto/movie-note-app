@@ -29,8 +29,18 @@ function App() {
     setList(newList);
   };
 
+  const deleteNote = (itemtoDelete) => {
+    const newList = list.filter((item) => item.id !== itemtoDelete.id);
+
+    saveToLocalStorage(newList);
+    setList(newList);
+  };
+
   const filteredList = useMemo(() => {
-    const filtered = activeTab !== "all" ? list.filter((listItem) => listItem.type === activeTab) : list;
+    const filtered =
+      activeTab !== "all"
+        ? list.filter((listItem) => listItem.type === activeTab)
+        : list;
     return filtered;
   }, [activeTab, list]);
 
@@ -45,7 +55,7 @@ function App() {
 
         <Tabs activeTab={activeTab} onChange={handleTabChange} />
       </div>
-      <List data={filteredList} />
+      <List data={filteredList} deleteNote={deleteNote} />
       <Add onAdd={handleAddNewNote} />
       <footer className="footer">Cristian Prieto, 2022</footer>
     </div>
