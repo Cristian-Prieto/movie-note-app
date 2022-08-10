@@ -8,6 +8,16 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
+.btnsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btnsDesktop {
+  display: none;
+}
+
 .detail {
   justify-content: center;
   display: flex;
@@ -19,13 +29,6 @@
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
-/* .detailDate {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  padding-top: 8px;
-} */
 
 .item:hover {
   transition: 0.9s ease-out;
@@ -128,7 +131,21 @@
   .more {
     display: none;
   }
-  .detail {
-    display: none;
+  .btnsDesktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .deleteButton:hover {
+    background-color: #111827;
+  }
+
+  .deleteButton svg path {
+    stroke: #111827;
+  }
+  .deleteButton:hover svg path {
+    stroke: white;
   }
 }

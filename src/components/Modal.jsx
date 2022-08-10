@@ -42,8 +42,10 @@ export function Modal({ editItem, onSave, close }) {
 
   const addToList = (event) => {
     event.preventDefault();
-    onSave(newNote);
-    close();
+    if (newNote.title !== "") {
+      onSave(newNote);
+      close();
+    }
   };
 
   return (
@@ -80,7 +82,12 @@ export function Modal({ editItem, onSave, close }) {
             />
           </div>
 
-          <InputText name="title" value={newNote.title} onChange={handleInputChange} placeholder="Title" />
+          <InputText
+            name="title"
+            value={newNote.title}
+            onChange={handleInputChange}
+            placeholder="Title"
+          />
           <Rating onChange={handleRatingChange} rating={newNote.rating} />
           <InputText
             name="comment"
