@@ -130,6 +130,10 @@
   }
   .more {
     display: none;
+    padding-left: 1rem;
+  }
+  .detail {
+    display: none;
   }
   .btnsDesktop {
     display: flex;

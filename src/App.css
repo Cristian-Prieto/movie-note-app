@@ -43,6 +43,7 @@
 }
 
 .added {
+  z-index: 10;
   background-color: #4ade80;
   color: #f3f4f6;
   border-radius: 1rem;
@@ -58,6 +59,7 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .edited {
+  z-index: 10;
   border-radius: 1rem;
   background-color: #eab308;
   color: #f3f4f6;
@@ -74,6 +76,7 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .deleted {
+  z-index: 10;
   background-color: #e11d48;
   color: #f3f4f6;
   border-radius: 1rem;
