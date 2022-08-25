@@ -14,16 +14,28 @@ export function StatusBar({ data }) {
 
   return (
     <div className={styles.statusContainer}>
-      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("movie") }}>
+      <div
+        className={styles.statItem}
+        style={{ backgroundColor: getTypeColor("movie") }}
+      >
         Movies: {statBar.movie}
       </div>
-      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("book") }}>
+      <div
+        className={styles.statItem}
+        style={{ backgroundColor: getTypeColor("book") }}
+      >
         Books: {statBar.book}
       </div>
-      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("game") }}>
+      <div
+        className={styles.statItem}
+        style={{ backgroundColor: getTypeColor("game") }}
+      >
         Games: {statBar.game}
       </div>
-      <div className={styles.statItem} style={{ backgroundColor: getTypeColor("show") }}>
+      <div
+        className={styles.statItem}
+        style={{ backgroundColor: getTypeColor("show") }}
+      >
         TV Shows: {statBar.show}
       </div>
     </div>
